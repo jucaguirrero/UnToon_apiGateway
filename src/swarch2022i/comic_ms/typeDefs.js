@@ -1,3 +1,25 @@
+import { GraphQLNonNull, GraphQLObjectType, GraphQLString } from "graphql";
+
+
+
+export default new GraphQLObjectType({
+    name: "File",
+    fields: () => ({
+      id: {
+        description: "Unique ID.",
+        type: new GraphQLNonNull(GraphQLString),
+        resolve: (storedFileName) => storedFileName,
+      },
+      name: {
+        description: "File name.",
+        type: new GraphQLNonNull(GraphQLString),
+        resolve: (storedFileName) => storedFileName,
+      },
+     
+    }),
+  });
+
+
 export const comicTypeDef = `
   type comic {
       idcomic: Int!
@@ -14,7 +36,6 @@ export const comicTypeDef = `
       nombre: String!
       autor: String
       fecha: String
-      direccion: String
       etiquetas:[String]
   }
   
@@ -26,6 +47,6 @@ export const comicQueries = `
   `;
 
 export const comicMutations = `
-    createComic(category: CategoryInput!): Category!
+    createComic(comic: ComicInput!): comic
     deleteComic(id: Int!): Int
 `;

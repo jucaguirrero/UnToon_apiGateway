@@ -16,6 +16,7 @@ export async function generalRequest(url, method, body, fullResponse) {
 		body,
 		json: true,
 		resolveWithFullResponse: fullResponse
+		
 	};
 	if (process.env.SHOW_URLS) {
 		// eslint-disable-next-line
