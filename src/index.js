@@ -4,7 +4,9 @@ import koaLogger from 'koa-logger';
 import koaBody from 'koa-bodyparser';
 import koaCors from '@koa/cors';
 
+
 import { graphiqlKoa, graphqlKoa } from 'apollo-server-koa';
+//import { GraphQLUpload } from 'apollo-upload-server';
 import graphQLSchema from './graphQLSchema';
 
 import { formatErr } from './utilities';
@@ -15,6 +17,7 @@ const PORT = process.env.PORT || 5000;
 
 app.use(koaLogger());
 app.use(koaCors());
+
 
 // read token from header
 app.use(async (ctx, next) => {

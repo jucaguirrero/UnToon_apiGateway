@@ -5,7 +5,8 @@ export const comicTypeDef = `
       autor: String
       fecha:String
       direccion:String
-      etiquetas:[String]
+      etiquetas:[String]  
+      
 
   }
   input ComicInput 

@@ -1,6 +1,6 @@
 import { generalRequest, getRequest } from '../../utilities';
 import { url, port, entryPoint } from './server';
-import { GraphQLUpload } from 'apollo-upload-server'
+
 
 
 const URL = `http://${url}:${port}/${entryPoint}`;
@@ -15,8 +15,8 @@ const resolvers = {
 			generalRequest(`${URL}/${id}`, 'GET'),
 	},
 	Mutation: {
-		createComic: (_, { comic  , comicpdf}) =>
-			generalRequest(`${URL}/${crear}`, comic, comicpdf ,'POST'),
+		createComic: (_, { comic  }) =>
+			generalRequest(`${URL}/${crear}`, comic,'POST'),
 
 		deleteComic: (_, { id }) =>
 			generalRequest(`${URL}/${borrar}${id}`, 'DELETE')
