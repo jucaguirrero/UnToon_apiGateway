@@ -34,24 +34,37 @@ import {
 
 import notificationResolvers from './swarch2022i/notifications_ms/resolvers';
 
+//busquedas
+
+import {
+	busquedaMutations,
+	busquedaQueries,
+	busquedaTypeDef
+} from './swarch2022i/search/typeDefs';
+import busquedaResolvers from './swarch2022i/search/resolvers';
+
+
 // merge the typeDefs
 const mergedTypeDefs = mergeSchemas(
 	[
 		'scalar JSON',
 		categoryTypeDef,
 		comicTypeDef,
-		notificationTypeDef
+		notificationTypeDef,
+		busquedaTypeDef
 
 	],
 	[
 		categoryQueries,
 		comicQueries,
-		notificationQueries
+		notificationQueries,
+		busquedaQueries
 	],
 	[
 		categoryMutations,
 		comicMutations,
-		notificationMutations
+		notificationMutations,
+		busquedaMutations
 	]
 );
 
@@ -62,6 +75,7 @@ export default makeExecutableSchema({
 		{ JSON: GraphQLJSON }, // allows scalar JSON
 		categoryResolvers,
 		comicResolvers,
-		notificationResolvers
+		notificationResolvers,
+		busquedaResolvers
 	)
 });
