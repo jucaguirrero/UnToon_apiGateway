@@ -25,24 +25,33 @@ import {
 
 import comicResolvers from './swarch2022i/comic_ms/resolvers';
 
+//Notification_ms
+import {
+	notificationMutations,
+	notificationQueries,
+	notificationTypeDef
+} from './swarch2022i/notifications_ms/typeDefs';
 
-
+import notificationResolvers from './swarch2022i/notifications_ms/resolvers';
 
 // merge the typeDefs
 const mergedTypeDefs = mergeSchemas(
 	[
 		'scalar JSON',
 		categoryTypeDef,
-		comicTypeDef
+		comicTypeDef,
+		notificationTypeDef
 
 	],
 	[
 		categoryQueries,
-		comicQueries
+		comicQueries,
+		notificationQueries
 	],
 	[
 		categoryMutations,
-		comicMutations
+		comicMutations,
+		notificationMutations
 	]
 );
 
@@ -52,6 +61,7 @@ export default makeExecutableSchema({
 	resolvers: merge(
 		{ JSON: GraphQLJSON }, // allows scalar JSON
 		categoryResolvers,
-		comicResolvers
+		comicResolvers,
+		notificationResolvers
 	)
 });
