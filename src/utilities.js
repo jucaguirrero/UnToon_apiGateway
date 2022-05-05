@@ -17,7 +17,11 @@ export async function generalRequest(url, method, body, fullResponse) {
 		json: true,
 		resolveWithFullResponse: fullResponse
 		
+		
 	};
+
+	console.log("aklijshdfaoishdoai  "+JSON.stringify(body));
+
 	if (process.env.SHOW_URLS) {
 		// eslint-disable-next-line
 		console.log(url);

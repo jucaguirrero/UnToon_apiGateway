@@ -16,7 +16,8 @@ const resolvers = {
 	},
 	Mutation: {
 		createComic: (_, {comic}) =>
-			generalRequest(`${URL}/${crear}`, comic, 'POST'),
+		generalRequest(`${URL}/${crear}`, 'POST',comic),
+
 
 		deleteComic: (_, { id }) =>
 			generalRequest(`${URL}/${borrar}${id}`, 'DELETE')
