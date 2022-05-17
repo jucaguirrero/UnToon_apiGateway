@@ -10,7 +10,6 @@ import { graphiqlKoa, graphqlKoa } from 'apollo-server-koa';
 import graphQLSchema from './graphQLSchema';
 
 import { formatErr } from './utilities';
-
 const app = new Koa();
 const router = new KoaRouter();
 const PORT = process.env.PORT || 5000;
