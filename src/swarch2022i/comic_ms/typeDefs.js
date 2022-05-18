@@ -9,7 +9,9 @@ export const comicTypeDef = `
       fecha:String
       direccion:String
       etiquetas:[String]  
-      
+      pdf:String
+      imagen: String
+      descripcion:String
 
   }
  
@@ -26,6 +28,8 @@ export const comicTypeDef = `
       fecha: String
       etiquetas: [String]
       archivo: String
+      imagen: String
+      descripcion: String
   }
   
   
