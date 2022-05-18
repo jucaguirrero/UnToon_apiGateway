@@ -33,7 +33,7 @@ export const userTypeDef = `
   ;
 
 export const userQueries = `
-      allusers: user
+      allusers: [user]!
       userById(id: Int): user
      
   `;
