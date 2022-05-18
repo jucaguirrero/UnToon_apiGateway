@@ -44,6 +44,15 @@ import {
 import busquedaResolvers from './swarch2022i/search/resolvers';
 
 
+//Users
+import{
+	userQueries,
+	userMutations,
+	userTypeDef
+	
+}from'./swarch2022i/user/typeDefs';
+import userResolvers from './swarch2022i/user/resolvers';
+
 // merge the typeDefs
 const mergedTypeDefs = mergeSchemas(
 	[
@@ -51,21 +60,25 @@ const mergedTypeDefs = mergeSchemas(
 		categoryTypeDef,
 		comicTypeDef,
 		notificationTypeDef,
-		busquedaTypeDef
+		busquedaTypeDef,
+		userTypeDef
 
 	],
 	[
 		categoryQueries,
 		comicQueries,
 		notificationQueries,
-		busquedaQueries
+		busquedaQueries,
+		userQueries
 	],
 	[
 		categoryMutations,
 		comicMutations,
 		notificationMutations,
-		busquedaMutations
-	]
+		busquedaMutations,
+		userMutations
+	],
+	
 );
 
 // Generate the schema object from your types definition.
@@ -76,6 +89,7 @@ export default makeExecutableSchema({
 		categoryResolvers,
 		comicResolvers,
 		notificationResolvers,
-		busquedaResolvers
+		busquedaResolvers,
+		userResolvers
 	)
 });
