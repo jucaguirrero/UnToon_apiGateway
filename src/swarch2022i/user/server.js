@@ -1,3 +1,3 @@
-export const url = 'localhost'
-export const port = '5000'
-export const entryPoint = 'users'
+export const url = '172.17.0.2'
+export const port = '5006'
+export const entryPoint = 'api'

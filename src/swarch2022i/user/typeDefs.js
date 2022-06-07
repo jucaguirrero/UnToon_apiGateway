@@ -1,45 +1,31 @@
 export const userTypeDef = `
-  type user {
+  type User {
       id: Int!
-      nickname: String
-      name: String!
-      lastname: String
-      email: String
-      password: String
-      birthday: String
+      username: String!
+      email: String!
+      password: String!
+      status: String
   }
-  type UserNoId {
-    nickname: String
-    name: String!
-    lastname: String
-    email: String
-    password: String
-    birthday: String
-  }
-
   input UserInput {
-    nickname: String
-    name: String!
-    lastname: String
-    email: String
-    password: String
-    birthday: String
+    username: String!
+    email: String!
+    password: String!
   }
-  input LogIn  {
-    email: String
-    password: String
-  }`
-  
-  ;
+  input UserSignInInput {
+    username: String!
+    password: String!
+  }
+  type Token {
+    token: String!
+  }
+  `;
 
 export const userQueries = `
-      allusers: [user]!
-      userById(id: Int): user
-     
+      allUsers: [User]!
+      userById(id: Int!): User!
   `;
 
 export const userMutations = `
-    createuser(user:UserInput ): UserNoId,
-    userlogIn(Login: LogIn):String
-
+    signUp(user: UserInput!): String
+    signIn(user: UserSignInInput!): Token! 
 `;

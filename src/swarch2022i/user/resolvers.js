@@ -1,21 +1,22 @@
 import { generalRequest, getRequest } from '../../utilities';
 import { url, port, entryPoint } from './server';
 
-const URL = `http://${url}:${port}/${entryPoint}`;
-const crear ="users" 
+const URL = `http://${url}:${port}/${entryPoint}/users`;
+const URL2 = `http://${url}:${port}/${entryPoint}/auth`;
+
 const resolvers = {
 	Query: {
-		allusers: (_) =>
+		allUsers: (_) =>
 			getRequest(URL, ''),
 		userById: (_, { id }) =>
 			generalRequest(`${URL}/${id}`, 'GET'),
-	
 	},
 	Mutation: {
-		createuser: (_, { UserNoId }) =>
-			generalRequest(`${URL}/${crear}`, 'POST', UserNoId),
-		userlogIn: (_, { LogIn }) =>
-			generalRequest(`${URL}/login`, 'POST', LogIn)
+		signUp: (_, { user }) =>
+			generalRequest(`${URL2}/signup`, 'POST', user),
+		signIn: (_, { user }) =>
+			generalRequest(`${URL2}/signin`, 'POST', user),
+		
 	}
 };
 
